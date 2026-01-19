@@ -155,7 +155,7 @@ while True:
             while not state.is_playing and not state.reset_needed and not state.show_best_trigger:
                 plt.pause(0.1)
             
-            draw_map(f"Population: pop_size | Gen {gen+1}/{max_gens} | Step {step}")
+            draw_map(f"Population: {pop_size} | Gen {gen+1}/{max_gens} | Step {step}")
             for pth in top_3_paths: ax.plot(pth[:,0], pth[:,1], color='gray', alpha=0.1)
 
             active = 0
@@ -195,3 +195,4 @@ while True:
                 state.show_best_trigger = False
 
             plt.pause(0.1)
+
