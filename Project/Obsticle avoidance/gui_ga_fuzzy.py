@@ -102,7 +102,7 @@ ax_play = plt.axes([0.55, 0.10, 0.1, 0.08])
 ax_reset = plt.axes([0.67, 0.10, 0.1, 0.08])
 ax_best = plt.axes([0.79, 0.10, 0.15, 0.08])
 
-s_pop = Slider(ax_pop, 'Pop', 10, 100, valinit=DEFAULT_POP_SIZE, valstep=1)
+s_pop = Slider(ax_pop, 'Populations', 10, 100, valinit=DEFAULT_POP_SIZE, valstep=1)
 s_gen = Slider(ax_gen, 'Gens', 1, 50, valinit=DEFAULT_GENS, valstep=1)
 btn_play = Button(ax_play, 'PLAY')
 btn_reset = Button(ax_reset, 'RESET')
@@ -155,7 +155,7 @@ while True:
             while not state.is_playing and not state.reset_needed and not state.show_best_trigger:
                 plt.pause(0.1)
             
-            draw_map(f"Gen {gen+1}/{max_gens} | Step {step}")
+            draw_map(f"Population: pop_size | Gen {gen+1}/{max_gens} | Step {step}")
             for pth in top_3_paths: ax.plot(pth[:,0], pth[:,1], color='gray', alpha=0.1)
 
             active = 0
@@ -193,4 +193,5 @@ while True:
                     ax.plot(champ.pos[0], champ.pos[1], 'yo', markersize=12, markeredgecolor='k', zorder=11)
                     plt.pause(0.02)
                 state.show_best_trigger = False
+
             plt.pause(0.1)
